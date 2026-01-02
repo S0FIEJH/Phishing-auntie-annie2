@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Error: Security Breach</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #f8fafc;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .alert-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            border-top: 6px solid #dc2626;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .icon-container {
+            background: #fee2e2;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .error-text {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #dc2626;
+            margin-bottom: 1rem;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+        }
+
+        .sub-text {
+            color: #4b5563;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .action-button {
+            background: #111827;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+
+        .action-button:hover {
+            background: #374151;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="alert-card">
+        <div class="icon-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+        </div>
+        
+        <h1 class="error-text">ERROR!</h1>
+        
+        <p class="sub-text">
+            Critical System Breach: Your data has been successfully intercepted. Credentials, session cookies, and browser history were exported at <span id="timestamp" class="font-mono text-red-600"></span>.
+        </p>
+
+        <div id="joke-reveal" class="hidden mt-4 p-4 bg-blue-50 text-blue-700 rounded-lg font-medium">
+            Gotcha! You just got phished. (Don't worry, it's just a prank—stay safe out there!) 🎣
+        </div>
+
+        <button onclick="revealPrank()" class="action-button">
+            View Error Logs
+        </button>
+    </div>
+
+    <script>
+        // Set a real-time timestamp when the page loads
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+
+        function revealPrank() {
+            const reveal = document.getElementById('joke-reveal');
+            reveal.classList.remove('hidden');
+            const btn = document.querySelector('.action-button');
+            btn.innerText = "Don't click suspicious links!";
+            btn.style.background = "#2563eb";
+        }
+    </script>
+</body>
+</html>
